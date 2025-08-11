@@ -5,13 +5,30 @@
   <meta name="description" content="">
   <meta name="keywords" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="/asserts/css/vendor/normalize.css">
-  <link rel="stylesheet" href="/asserts/css/iconfont.css">
-  <link rel="stylesheet" href="/asserts/css/index.css">
-  <link href="https://fonts.font.im/css?family=Lato|Open+Sans|Roboto" rel="stylesheet">
-  <title>Yaxing Son</title>
+	<link rel="stylesheet" href="/css/vendor/normalize.css">
+  <link rel="stylesheet" href="/css/iconfont.css">
+  <link rel="stylesheet" href="/css/index.css">
+  <link href="https://fonts.font.im/css?family=Lato|Open+Sans|Roboto|Playwrite+AU+QLD" rel="stylesheet">
+  <title>YaXing Son</title>
 </head>
-<body>
+<body data-theme="light" data-lang="en">
+  <header>
+    <div>
+      <a href="" style="display: inline-block;width: 50px; height: 50px;">
+        <svg viewBox="0 0 182 98" xmlns="http://www.w3.org/2000/svg" style="transform: translate3d(0px, 0px, 0px); --648c898a: #fdfdfd;">
+          <title>YaXing Son @ yaxingson.me</title>
+          <path id="signaturePath" stroke="#fdfdfd" stroke-width="2" d=""></path>
+        </svg>
+      </a>
+    </div>
+    <div>
+      <a href="https://github.com/yaxingson" target="_blank"><i class="icon icon-github"></i></a>
+      <a href="mailto:3228891558@qq.com"><i class="icon icon-email"></i></a>
+      <a href="/photos.html" target="_blank"><i class="icon icon-photo"></i></a>
+      <a href="javascript:void(0)"><i class="icon icon-translate"></i></a>
+      <a href="javascript:void(0)"><i class="icon icon-theme"></i></a>
+    </div>
+  </header>
   <main>
     <section id="about">
       <h1>Hello.</h1>
@@ -31,15 +48,14 @@
         life topics.
       </p>
       <p>
-        Beyond programming, I also enjoy design, photography, and pets. You can find 
-        some of my photos on <a href="/photos.html">this page</a>. If we share similar interests, feel free to 
+        Beyond programming, I also enjoy design, photography, and pets. You can learn more about me 
+        through my <a href="">Blog</a>. If we share similar interests, feel free to 
         reach out—let’s grab coffee or collaborate on something!
       </p>
-      <p>&copy;2020-2025 Yaxing Son</p>
+      <p>&copy;2020-<span id="present"></span> Yaxing Son</p>
     </section>
-    <canvas id="profile"></canvas>
   </main>
-  <script src="/asserts/js/vendor/suncalc.js"></script>
-  <script src="/asserts/js/common.js"></script>
+  <canvas id="bg" width="100vw" height="100vh"></canvas>
+  <script type="module" src="/js/index.js"></script>
 </body>
 </html>

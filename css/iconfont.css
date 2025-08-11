@@ -1,0 +1,22 @@
+.icon {
+  display: inline-block;
+  width:22px;
+  height: 22px;
+  background-size: cover;
+  cursor: pointer;
+  opacity: 0.75;
+}
+
+.icon-theme {background-image: url(/assets/icons/theme.svg);}
+.icon-translate {background-image: url(/assets/icons/translate.svg);}
+.icon-email { background-image: url(/assets/icons/email.svg);}
+.icon-github { background-image: url(/assets/icons/github.svg);}
+.icon-photo { background-image: url(/assets/icons/photo.svg);}
+.icon-view { background-image: url(/assets/icons/view.svg);}
+
+.icon-dark-theme {background-image: url(/assets/icons/dark_theme.svg);}
+.icon-dark-translate { background-image: url(/assets/icons/dark_translate.svg);}
+.icon-dark-email {background-image: url(/assets/icons/dark_email.svg);}
+.icon-dark-github { background-image: url(/assets/icons/dark_github.svg);}
+.icon-dark-photo {background-image: url(/assets/icons/dark_photo.svg);}
+.icon-dark-view { background-image: url(/assets/icons/dark_view.svg);}
