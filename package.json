@@ -8,8 +8,8 @@
     "dev": "npx serve ."
   },
   "keywords": [],
-  "author": "sgk",
-  "license": "ISC",
+  "author": "yaxingson",
+  "license": "MIT",
   "devDependencies": {
     "@eslint/js": "^9.0.0",
     "eslint": "^9.0.0",

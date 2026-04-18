@@ -1,8 +1,11 @@
 "use strict"
 
+
 const translateIcon = document.querySelector('.icon-translate')
 const themeIcon = document.querySelector('.icon-theme')
 const icons = document.getElementsByClassName('icon')
+
+const pathEl = document.querySelector('path')
 
 function getCurrentYear() {
   return new Date().getFullYear()
@@ -36,7 +39,10 @@ function translate() {
     through my <a href="">Blog</a>. If we share similar interests, feel free to 
     reach out—let’s grab coffee or collaborate on something!
   </p>
-  <p>&copy;2020-<span id="present">${getCurrentYear()}</span> Yaxing Son</p>
+  <p>
+    <span>&copy;2020-<span id="present">${getCurrentYear()}</span> Yaxing Son</span>
+    <span>:)</span>
+  </p>
   `
   const chineseHtml = `
   <h1>你好。</h1>
@@ -56,127 +62,29 @@ function translate() {
     除了编程，我还喜欢设计、摄影和宠物。您可以通过我的<a href="">博客</a>了解更多关于我的信息。
     如果我们有共同的兴趣，欢迎随时联系我们——一起喝杯咖啡，或者合作做点什么！
   </p>
-  <p>&copy;2020-<span id="present">${getCurrentYear()}</span> Yaxing Son</p>
+  <p>
+    <span>&copy;2020-<span id="present">${getCurrentYear()}</span> Yaxing Son</span>
+    <span>:)</span>
+  </p>
   `
 
   container.innerHTML = currentLang === 'en' ? chineseHtml : englishHtml
 }
 
-function toggleTheme() {
-  const currentTheme = document.body.getAttribute('data-theme') || 'light'
-  document.body.setAttribute('data-theme', currentTheme === 'light' ? 'dark' : 'light')
+// function toggleTheme() {
+//   const currentTheme = document.body.getAttribute('data-theme') || 'light'
+//   document.body.setAttribute('data-theme', currentTheme === 'light' ? 'dark' : 'light')
 
-  for (const icon of icons) {
-    icon.className = icon.className.replace(/icon-(.+)/, (_, name)=>{
-      return /^dark-/.test(name) ? `icon-${name.slice(5)}` : `icon-dark-${name}`
-    })
-  }
-}
+//   pathEl.setAttribute('fill', currentTheme === 'light' ? '#acacac' : '#3f3f3f')
+  
+
+//   for (const icon of icons) {
+//     icon.className = icon.className.replace(/icon-(.+)/, (_, name)=>{
+//       return /^dark-/.test(name) ? `icon-${name.slice(5)}` : `icon-dark-${name}`
+//     })
+//   }
+// }
 
 translateIcon.addEventListener('click', translate)
-themeIcon.addEventListener('click', toggleTheme)
 
 document.getElementById('present').textContent = getCurrentYear()
-
-/** @type HTMLCanvasElement */
-const canvas = document.getElementById('bg')
-
-canvas.width = window.innerWidth
-canvas.height = window.innerHeight
-canvas.style.cssText = `
-position: absolute;
-left: 0;
-top: 0;
-z-index: -1;
-`
-const ctx = canvas.getContext('2d')
-
-function lineTo(start, end) {
-  ctx.beginPath()
-
-  ctx.moveTo(start.x, start.y)
-  ctx.lineTo(end.x, end.y)
-
-  ctx.stroke()
-}
-
-function getEndPoint(l) {
-  const {start, length, theta } = l
-  return {
-    x: start.x + length * Math.cos(theta),
-    y: start.y + length * Math.sin(theta)
-  }
-}
-
-function line(l) {
-  const end = getEndPoint(l)
-  lineTo(l.start, end)
-}
-
-
-ctx.beginPath()
-
-ctx.strokeStyle = '#808080'
-
-const pendingTasks = []
-
-function random(min, max) {
-  return Math.random() * (max-min) + min
-}
-
-function growBranch(startBranch) {
-  const endPoint = getEndPoint(startBranch)
-
-  line(startBranch)
-
-
-  if (Math.random() < 0.5) {
-    const leftBranch = {
-      start: endPoint,
-      length: random(0, 30),
-      theta: startBranch.theta - Math.random() * 0.5
-    }
-    pendingTasks.push(()=>growBranch(leftBranch))
-  } 
-  
-  if (Math.random() < 0.5) {
-    const rightBranch = {
-      start: endPoint,
-      length: random(0, 30),
-      theta: startBranch.theta + Math.random() * 0.5
-    }
-    pendingTasks.push(()=>growBranch(rightBranch))
-  }
-}
-
-const startBranch = {
-  start: { x:0, y:0 },
-  length: 30,
-  theta: Math.PI/5
-}
-
-growBranch(startBranch)
-
-growBranch({
-  start: {
-    x: window.innerWidth,
-    y: window.innerHeight,
-  },
-  length: 30,
-  theta: -Math.PI/2
-})
-
-function frame() {
-  const tasks = [...pendingTasks]
-  pendingTasks.length = 0
-  tasks.forEach(task => task())
-}
-
-function startFrame() {
-  requestAnimationFrame(()=>{
-    frame()
-    startFrame()
-  })
-}
-
-startFrame()

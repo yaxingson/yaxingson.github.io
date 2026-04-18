@@ -74,3 +74,38 @@ main a:hover::after {
   content: "";
   height: 110%;
 }
+
+main section > p:last-of-type {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#signaturePath {
+  stroke-dasharray: 2400;
+  stroke-dashoffset: 2400;
+  fill: transparent;
+  animation: drawSignature 8s linear infinite;
+}
+
+@keyframes drawSignature {
+  0% {
+    stroke-dashoffset: 2400;
+  }
+
+  15% {
+    fill: transparent;
+  }
+
+  35%,
+  75% {
+    stroke-dashoffset: 0;
+    fill: #3f3f3f;
+  }
+
+  90%,
+  100% {
+    stroke-dashoffset: 2400;
+    fill: transparent;
+  }
+}
