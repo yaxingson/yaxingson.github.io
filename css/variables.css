@@ -1,6 +1,12 @@
 :root {
   --background: #fff;
   --text-color: #000;
+
+  --bevel-dark: #000;
+  --bevel-highlight: #fff;
+  --bevel-shadow: #808080;
+  --bevel-light: #dfdfdf;
+
 }
 
 [data-theme=dark] {

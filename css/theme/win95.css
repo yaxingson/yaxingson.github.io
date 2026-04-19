@@ -1,0 +1,193 @@
+@import url(../variables.css);
+
+body {
+  background: #c0c0c0;
+  color: var(--text-color);
+  font-family: 'Roboto', sans-serif;
+}
+
+main {
+  position: relative;
+  width: 80%;
+  margin: auto;
+}
+
+header {
+  padding: 10px 50px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #000080;
+}
+
+header i[class^=icon] {
+  margin-left: 16px;
+  background-color: #c0c0c0;
+  border: 1px outset white;
+  background-size: 16px 16px;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+
+header i[class^=icon]:active {
+  transform: translate(1px, 1px);
+  box-shadow: inset 1px 1px var(--bevel-dark), 
+              inset -1px -1px var(--bevel-highlight), 
+              inset 2px 2px var(--bevel-shadow), 
+              inset -2px -2px var(--bevel-light);
+}
+
+
+#about {
+  padding-top: 30px;
+  margin: auto;
+  max-width: 600px;
+} 
+
+#about h1,  #about > p[class] {
+  padding: 10px;
+  box-shadow: inset 1px 1px var(--bevel-highlight), 
+            inset -1px -1px var(--bevel-dark), 
+            inset 2px 2px var(--bevel-light), 
+            inset -2px -2px var(--bevel-shadow);
+}
+
+#about > p[class=about-intro], #about > p[class=about-activities] {
+  background-color: #fff;
+  box-shadow: inset 1px 1px var(--bevel-dark), 
+              inset -1px -1px var(--bevel-highlight), 
+              inset 2px 2px var(--bevel-shadow), 
+              inset -2px -2px var(--bevel-light);
+}
+
+#about > p:last-of-type {
+  padding: 10px;
+  position: relative;
+  margin-top: 40px;
+  background-color: #fff;
+  box-shadow: inset 1px 1px var(--bevel-dark), 
+              inset -1px -1px var(--bevel-highlight), 
+              inset 2px 2px var(--bevel-shadow), 
+              inset -2px -2px var(--bevel-light);
+}
+
+#about > p:last-of-type::before {
+  position: absolute;
+  top:-20px;
+  left:0;
+  width: 100%;
+  content: "";
+  border:0;
+  margin-bottom: 30px;
+  border-top: 2px solid var(--bevel-shadow);
+  border-bottom: 2px solid var(--bevel-highlight);
+}
+
+
+#profile {
+  position: absolute;
+  top: 0;
+  right:0;
+  z-index: -2;
+}
+
+h1 {
+  font-size: 50px;
+  font-family: "Playwrite AU QLD";
+}
+
+h1 ~ p {
+  font-size: 18px;
+}
+
+p {
+  line-height: 1.5;
+  opacity: 0.75;
+}
+
+main a {
+  color: #000;
+  background-color: #c0c0c0;
+  text-decoration: none;
+  padding: 5px;
+  box-shadow: inset 1px 1px var(--bevel-highlight), 
+              inset -1px -1px var(--bevel-dark), 
+              inset 2px 2px var(--bevel-light), 
+              inset -2px -2px var(--bevel-shadow);
+}
+
+main a:active {
+  transform: translate(1px, 1px);
+  box-shadow: inset 1px 1px var(--bevel-dark), 
+              inset -1px -1px var(--bevel-highlight), 
+              inset 2px 2px var(--bevel-shadow), 
+              inset -2px -2px var(--bevel-light);
+}
+
+main section > p:last-of-type {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.action-bar {
+  position: relative;
+}
+
+.theme-list {
+  position: absolute;
+  top: 50px;
+  right:0;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  box-shadow: inset 1px 1px var(--bevel-highlight), 
+              inset -1px -1px var(--bevel-dark), 
+              inset 2px 2px var(--bevel-light), 
+              inset -2px -2px var(--bevel-shadow);
+  width: 180px;
+  padding: 8px 12px;
+  display: none;
+}
+
+.theme-list li {
+  margin: 5px 0;
+  padding: 5px 8px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.theme-list li:hover {
+  background-color: #000080;
+  color: #fff;
+}
+
+#signaturePath {
+  stroke-dasharray: 2400;
+  stroke-dashoffset: 2400;
+  fill: transparent;
+  animation: drawSignature 8s linear infinite;
+}
+
+@keyframes drawSignature {
+  0% {
+    stroke-dashoffset: 2400;
+  }
+
+  15% {
+    fill: transparent;
+  }
+
+  35%,
+  75% {
+    stroke-dashoffset: 0;
+    fill: #3f3f3f;
+  }
+
+  90%,
+  100% {
+    stroke-dashoffset: 2400;
+    fill: transparent;
+  }
+}
+
