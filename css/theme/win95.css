@@ -124,6 +124,10 @@ main a:active {
               inset -2px -2px var(--bevel-light);
 }
 
+main > section > p:nth-last-child(2) {
+  margin-bottom: 50px;
+}
+
 main section > p:last-of-type {
   display: flex;
   align-items: center;
